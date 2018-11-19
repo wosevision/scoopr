@@ -2,7 +2,7 @@
 
 Need to scoop some files from someone else's webserver?
 
-Do those files happen to be named as incrementing numbers with leading zeroes? 
+Do those files happen to be named as incrementing numbers with leading zeroes??
 
 Well have I got the command line utility for you!! Step right over those bit-shift operators, they won't bite!!!
 
@@ -25,12 +25,12 @@ $ scoopr --help
 
 ```
 url     URL to fetch content from
-                     [string] [default: "https://serebii.net/sunmoon/pokemon"]
-start   number to begin from                             [number] [default: 1]
-end     number to end at                               [number] [default: 809]
-pad     whether to add leading zeros to output files[boolean] [default: false]
-format  format of files to scoop                     [string] [default: "png"]
-output  directory to save files to                     [string] [default: "."]
+                      [string] [default: "https://serebii.net/sunmoon/pokemon"]
+start   number to begin from                              [number] [default: 1]
+end     number to end at                                [number] [default: 809]
+pad     whether to add leading zeros to output files [boolean] [default: false]
+format  format of files to scoop                      [string] [default: "png"]
+output  directory to save files to                      [string] [default: "."]
 ```
 
 ## Example
