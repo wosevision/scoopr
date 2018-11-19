@@ -1,0 +1,24 @@
+{
+  "name": "scoopr",
+  "version": "1.0.0",
+  "description": "Scoop some files, remotely?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wosevision/scoopr.git"
+  },
+  "keywords": [
+    "node",
+    "file",
+    "download"
+  ],
+  "author": "Jackson Teather",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wosevision/scoopr/issues"
+  },
+  "homepage": "https://github.com/wosevision/scoopr#readme"
+}
