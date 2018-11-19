@@ -6,7 +6,7 @@ const request = require('request');
 const retry = require('promise-retry');
 const yargs = require('yargs');
 
-Number.prototype.pad = function(size) {
+Number.prototype.pad = function (size) {
   let s = `${this}`;
   while (s.length < (size || 2)) {
     s = `0${s}`;
@@ -15,12 +15,7 @@ Number.prototype.pad = function(size) {
 };
 
 const {
-  url = 'https://serebii.net/sunmoon/pokemon',
-  start = 1,
-  end = 809,
-  pad = false,
-  format = 'png',
-  output = '.'
+  url = 'https://serebii.net/sunmoon/pokemon', start = 1, end = 809, pad = false, format = 'png', output = '.'
 } = yargs
   .scriptName('scoopr')
   .command(
@@ -67,7 +62,9 @@ const PAD_LENGTH = `${end}`.length;
 const getUrl = number => `${url}/${number.pad(PAD_LENGTH)}.${format}`;
 const getFile = fileUrl =>
   new Promise((resolve, reject) => {
-    request(fileUrl, { encoding: 'binary' }, (error, _, body) => {
+    request(fileUrl, {
+      encoding: 'binary'
+    }, (error, _, body) => {
       if (error) {
         reject(error);
       }
@@ -84,7 +81,10 @@ const requestArray = [];
 for (let i = start; i <= end; i++) {
   const url = getUrl(i);
   const outputPath = path.join(output, `${pad === true ? i.pad(PAD_LENGTH) : i}.${format}`);
-  requestArray.push({ url, outputPath });
+  requestArray.push({
+    url,
+    outputPath
+  });
 }
 
 requestArray.reduce((promises, req) => {
@@ -95,7 +95,7 @@ requestArray.reduce((promises, req) => {
         return tryAgain(error);
       })
     )
-      .then(file => fs.writeFile(req.outputPath, file, 'binary', err => console.error(err)))
-      .catch(error => console.error(`ERROR DOWNLOADING FILE: ${req.url}\n`, error))
+    .then(file => fs.writeFile(req.outputPath, file, 'binary', err => console.error(err)))
+    .catch(error => console.error(`ERROR DOWNLOADING FILE: ${req.url}\n`, error))
   );
 }, Promise.resolve());
